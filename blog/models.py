@@ -8,7 +8,7 @@ from blog.managers import BlogManager
 
 
 class Blog(TimeBasedModel):
-    user = models.ForeignKey('accounts.User', on_delete=models.CASCADE)
+    author = models.ForeignKey('accounts.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=1500)
     content = models.TextField()
     slug = models.SlugField(null=True, blank=True)
