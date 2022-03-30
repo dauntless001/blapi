@@ -1,13 +1,16 @@
 from django.contrib import admin
-from blog.models import Blog, BlogImage
+from post.models import Category, Post, Image
 # Register your models here.
 
+admin.site.register(Category)
+
+
 class ImageInline(admin.TabularInline):
-    model = BlogImage
+    model = Image
 
 
-@admin.register(Blog)
-class BlogAdmin(admin.ModelAdmin):
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
     list_display = ['author','title', 'created_at']
     list_filter = ['created_at']
     inlines = [ImageInline]

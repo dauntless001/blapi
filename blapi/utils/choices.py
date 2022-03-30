@@ -1,5 +1,5 @@
 from django.db import models
 
-class BlogStatusChoices(models.TextChoices):
+class PostStatusChoices(models.TextChoices):
     draft = 'draft','Draft'
     published = 'published', 'Published'
