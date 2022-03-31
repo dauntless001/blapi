@@ -9,9 +9,9 @@ from post.managers import PostManager
 
 class Post(TimeBasedModel):
     author = models.ForeignKey('accounts.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=1500)
+    title = models.CharField(max_length=1500, unique=True)
     content = models.TextField()
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True, unique=True)
     category = models.ForeignKey('post.Category', on_delete=models.SET_NULL, null=True, blank=True)
     status = models.CharField(default=PostStatusChoices.draft, choices=PostStatusChoices.choices, max_length=50)
 
