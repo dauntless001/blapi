@@ -2,6 +2,7 @@ from post.models import Post, Image
 from rest_framework import serializers
 from django.utils.text import slugify
 
+
 class PostImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
@@ -17,5 +18,4 @@ class PostSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data['slug'] = slugify(validated_data['title']) 
         return super().create(validated_data)
-
 

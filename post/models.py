@@ -31,7 +31,7 @@ class Post(TimeBasedModel):
 
 class Image(TimeBasedModel):
     post = models.ForeignKey('post.Post', on_delete=models.CASCADE, related_name='post_image')
-    image = models.ImageField(upload_to=image_path)
+    image = models.FileField(upload_to=image_path)
 
     class Meta:
         ordering = ['-created_at']
